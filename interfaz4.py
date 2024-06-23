@@ -37,11 +37,9 @@ class GestionMundial:
     def __init__(self, root):
         self.mundial = Mundial(None)
 
-        # Crear pestañas
         self.notebook = ttk.Notebook(root)
         self.notebook.pack(fill="both", expand=True)
 
-        # Pestaña de equipos
         self.equipo_tab = ttk.Frame(self.notebook)
         self.notebook.add(self.equipo_tab, text="Equipos")
 
@@ -54,7 +52,6 @@ class GestionMundial:
         self.agregar_equipo_button = tk.Button(self.equipo_frame, text="Agregar Equipo", command=self.agregar_equipo)
         self.agregar_equipo_button.grid(row=2, column=0, columnspan=2, padx=5, pady=5)
 
-        # Pestaña de grupos
         self.grupo_tab = ttk.Frame(self.notebook)
         self.notebook.add(self.grupo_tab, text="Grupos")
 
@@ -66,7 +63,6 @@ class GestionMundial:
         self.agregar_grupo_button = tk.Button(self.grupo_frame, text="Registrar Grupo", command=self.registrar_grupo)
         self.agregar_grupo_button.grid(row=1, column=0, columnspan=2, padx=5, pady=5)
 
-        # Pestaña de partidos
         self.partido_tab = ttk.Frame(self.notebook)
         self.notebook.add(self.partido_tab, text="Partidos")
 
@@ -80,14 +76,12 @@ class GestionMundial:
         self.jugar_partido_button = tk.Button(self.partido_frame, text="Jugar Partido", command=self.jugar_partido)
         self.jugar_partido_button.grid(row=3, column=0, columnspan=2, padx=5, pady=5)
 
-        # Pestaña de información
         self.info_tab = ttk.Frame(self.notebook)
         self.notebook.add(self.info_tab, text="Información")
 
         self.info_text = tk.Text(self.info_tab, height=20, width=50)
         self.info_text.pack(fill="both", expand=True, padx=10, pady=10)
 
-        # Asociar info_text con Mundial
         self.mundial.info_text = self.info_text
 
     def crear_entrada(self, parent, texto, fila, columna):
